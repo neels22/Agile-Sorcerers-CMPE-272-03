@@ -1,0 +1,59 @@
+---
+- name: Deploy Web Server
+  hosts: webservers
+  become: yes
+  tags: deploy
+  tasks:
+    - name: Update system packages (RedHat-based)
+      yum:
+        name: "*"
+        state: latest
+      when: ansible_os_family == "RedHat"
+
+    - name: Install Apache webserver (httpd)
+      yum:
+        name: httpd
+        state: present
+
+    - name: Modify Apache to listen on port 8080
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^Listen\s+80'
+        line: 'Listen 8080'
+      notify: Restart httpd
+
+    - name: Deploy custom index.html page
+      template:
+        src: index.html.j2
+        dest: /var/www/html/index.html
+        owner: apache
+        group: apache
+        mode: '0644'
+      
+    - name: Ensure Apache (httpd) is started and enabled
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+  handlers:
+    - name: Restart httpd
+      service:
+        name: httpd
+        state: restarted
+
+- name: Undeploy Web Server
+  hosts: webservers
+  become: yes
+  tags: undeploy
+  tasks:
+    - name: Stop and disable Apache (httpd) service
+      service:
+        name: httpd
+        state: stopped
+        enabled: no
+
+    - name: Remove Apache (httpd) package
+      yum:
+        name: httpd
+        state: absent
