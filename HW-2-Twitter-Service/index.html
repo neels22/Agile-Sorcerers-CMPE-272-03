@@ -8,18 +8,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Mastodon Logo -->
     <img src="https://joinmastodon.org/_next/static/media/wordmark-white-text.01e9f493.svg" alt="Mastodon Logo" class="logo">
-
-    <!-- Card Container -->
     <div class="card">
-        <!-- Left Side: Create Post -->
         <div class="left">
             <input type="text" id="status" placeholder="Enter status update">
             <button onclick="createPost(event)">Create Post</button>
         </div>
 
-        <!-- Right Side: Manage Posts -->
         <div class="right">
             <select id="postIdDropdown" aria-label="Select a Post ID">
                 <option value="">Select Post ID</option>
@@ -31,7 +26,6 @@
         </div>
     </div>
 
-    <!-- Post Display Section -->
     <h3 id="postDisplay"></h3>
 
     <script src="scripts.js"></script>
