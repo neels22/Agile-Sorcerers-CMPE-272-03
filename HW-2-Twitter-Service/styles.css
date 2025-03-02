@@ -1,0 +1,100 @@
+/* Added By: Indraneel Sarode */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #6a0dad;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    width: 200px;
+    margin: 40px auto 20px;
+    display: block;
+}
+
+.card {
+    background: #610091; 
+    color: white;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 15px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6); 
+    border: 2px solid rgb(0, 0, 0); 
+}
+
+.left, .right {
+    width: 45%;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: 50%;
+    width: 2px;
+    background-color: rgba(0, 0, 0, 0.153);
+    transform: translateX(-50%);
+}
+
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #6a0dad;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: #6a0dad;
+    font-size: 16px;
+    text-align: center;
+}
+
+#postDisplay {
+    margin-top: 20px;
+    font-weight: bold;
+    min-height: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #610091;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+    display: none;
+}
