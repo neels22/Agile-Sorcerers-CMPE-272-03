@@ -1,0 +1,39 @@
+<!-- Added By: Urvashi Kohale -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastodon Web Service</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Mastodon Logo -->
+    <img src="https://joinmastodon.org/_next/static/media/wordmark-white-text.01e9f493.svg" alt="Mastodon Logo" class="logo">
+
+    <!-- Card Container -->
+    <div class="card">
+        <!-- Left Side: Create Post -->
+        <div class="left">
+            <input type="text" id="status" placeholder="Enter status update">
+            <button onclick="createPost(event)">Create Post</button>
+        </div>
+
+        <!-- Right Side: Manage Posts -->
+        <div class="right">
+            <select id="postIdDropdown" aria-label="Select a Post ID">
+                <option value="">Select Post ID</option>
+            </select>
+            <div class="button-group">
+                <button onclick="getPost()">Get Post</button>
+                <button onclick="deletePost(event)">Delete Post</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Display Section -->
+    <h3 id="postDisplay"></h3>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
